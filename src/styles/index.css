@@ -1,0 +1,15 @@
+@import 'antd/dist/antd.css';
+
+:root {/*rgb values */
+    --primary-color: 235, 235, 235;
+    --secondary-color: 58, 110, 165;
+    --orange: 255, 103, 0;
+    --silver: 192, 192, 192;
+    --dark-blue: 0, 78, 152;
+}
+
+body {
+    background-image: radial-gradient(rgb(var(--silver)), rgb(var(--secondary-color)));
+    margin: 0;
+    padding: 0;
+}
