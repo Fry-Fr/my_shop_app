@@ -1,4 +1,5 @@
 // Libraries
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import styled from 'styled-components';
@@ -48,15 +49,16 @@ margin: 0 auto;
 `;
 
 function App() {
+  const [current, setCurrent] = useState('');
   return(
     <Container>
       <Header>
-        <Nav/>
+        <Nav current={current} setCurrent={setCurrent} />
       </Header>
       <Content>
         <Routes>
-          <Route path='/' element={<Home/>} />
-          <Route path='shop' element={<Shop/>} />
+          <Route path='/' element={<Home setCurrent={setCurrent} />} />
+          <Route path='shop' element={<Shop setCurrent={setCurrent} />} />
         </Routes>
       </Content>
       <Footer>

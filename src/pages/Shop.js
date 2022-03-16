@@ -1,4 +1,5 @@
-import {  Card } from 'antd';
+import { useEffect } from 'react';
+import { Card } from 'antd';
 import styled from 'styled-components';
 import shopData from '../assets/data/productData';
 
@@ -64,7 +65,11 @@ width: 100%;
 }
 `;
 
-function Shop() {
+// eslint-disable-next-line react/prop-types
+function Shop({ setCurrent }) {
+  useEffect(() => {
+    setCurrent('shop');
+  },[]);
   return (
     <MainContainer>
       <Grid>

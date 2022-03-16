@@ -1,4 +1,3 @@
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Menu, Col, Badge } from 'antd';
@@ -87,9 +86,8 @@ line-height: 2;
 }
 `;
 
-function Nav() {
-
-  const [current, setCurrent] = useState('home');
+// eslint-disable-next-line react/prop-types
+function Nav({ current, setCurrent}) {
 
   const handleClick = (e) => {
     setCurrent(e.key);
@@ -101,7 +99,7 @@ function Nav() {
         <Container>
           <Menu onClick={handleClick} selectedKeys={[current]} mode='horizontal'>
             <Menu.Item key={'home'}><Link to='/'>Home</Link></Menu.Item>
-            <Menu.Item key={'blog'}><Link to='shop'>Shop</Link></Menu.Item>
+            <Menu.Item key={'shop'}><Link to='shop'>Shop</Link></Menu.Item>
             <Menu.Item key={'about'}>About</Menu.Item>
           </Menu>
         </Container>
