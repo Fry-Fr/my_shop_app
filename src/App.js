@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import Nav from './components/Nav';
 // Pages
 import Home from './pages/Home';
+import Shop from './pages/Shop';
 
 const { Header,Content,Footer } = Layout;
 
@@ -55,7 +56,7 @@ function App() {
       <Content>
         <Routes>
           <Route path='/' element={<Home/>} />
-          <Route path='blogs' element={<></>} />
+          <Route path='shop' element={<Shop/>} />
         </Routes>
       </Content>
       <Footer>
