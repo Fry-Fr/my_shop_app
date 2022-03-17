@@ -87,7 +87,7 @@ function FeaturedItems() {
               <span><h4 className='card-title'>{_.item_name}</h4></span>
               <img height={200} src={_.image_url} alt='gum'/>
               <span className='card-price'>Price: {_.price}</span>
-              <p className='card-content'>{_.description}</p>
+              <p style={_.description.length < 50 ? {textIndent:0} : undefined} className='card-content'>{_.description}</p>
             </Card>
           );
         })}
