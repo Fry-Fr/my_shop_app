@@ -49,8 +49,8 @@ padding: 1.5rem;
   overflow: hidden;
   text-align: left;
   text-overflow: ellipsis;
-  margin: 0;
-  padding: 0 .75rem;
+  margin: 0 auto 1rem;
+  padding: 0 1rem .25rem;
   text-indent: 1rem;
 }
 `;
@@ -91,7 +91,7 @@ function Shop({ setCurrent }) {
               <span><h4 className='card-title'>{_.item_name}</h4></span>
               <img height={275} className='card-image' src={_.image_url} alt='gum'/>
               <span className='card-price'>Price: {_.price}</span>
-              <p className='card-content'>{_.description}</p>
+              <p style={_.description.length < 50 ? {textIndent:0} : undefined} className='card-content'>{_.description}</p>
             </Card>
           );
         })}
