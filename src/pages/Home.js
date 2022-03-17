@@ -3,7 +3,7 @@ import { useEffect } from 'react';
 import { Row, Col } from 'antd';
 // Components
 import FeaturedItems from '../components/FeaturedItems';
-import SiteView from '../components/SiteView';
+import SectionCart from '../components/SectionCart';
 
 // eslint-disable-next-line react/prop-types
 function Home({ setCurrent }) {
@@ -17,7 +17,7 @@ function Home({ setCurrent }) {
         <FeaturedItems/>
       </Col>
       <Col span={5} offset={1}>
-        <SiteView/>
+        <SectionCart/>
       </Col>
     </Row>
   );
