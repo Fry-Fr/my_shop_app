@@ -1,4 +1,5 @@
 // Libs
+import { useNavigate } from 'react-router-dom';
 import { Space, Card } from 'antd';
 import styled from 'styled-components';
 
@@ -64,13 +65,21 @@ h2 {
 `;
 
 function FeaturedItems() {
+
+  const navigate = useNavigate();
+
+  const handleItemClick = (e) => {
+    e.preventDefault();
+    navigate(`shop/${e.currentTarget.id}`);
+  }
+
   return (
     <Container>
       <h2>Featured Items</h2>
       <Space direction='horizontal'>
         {dataProducts.map((_) => {
           return (
-            <Card key={_.id}>
+            <Card id={_.id} key={_.id} onClick={handleItemClick} >
               <span><h4 className='card-title'>{_.item_name}</h4></span>
               <img src={_.image_url} alt='gum'/>
               <span className='card-price'>Price: {_.price}</span>
