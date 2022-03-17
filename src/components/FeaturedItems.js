@@ -69,9 +69,8 @@ function FeaturedItems() {
   const navigate = useNavigate();
 
   const handleItemClick = (e) => {
-    e.preventDefault();
     navigate(`shop/${e.currentTarget.id}`);
-  }
+  };
 
   return (
     <Container>
