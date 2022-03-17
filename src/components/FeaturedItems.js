@@ -83,7 +83,7 @@ function FeaturedItems() {
             return;
           }
           return (
-            <Card id={_.id} key={_.id} onClick={handleItemClick} >
+            <Card id={_.id} key={index} onClick={handleItemClick} >
               <span><h4 className='card-title'>{_.item_name}</h4></span>
               <img height={200} src={_.image_url} alt='gum'/>
               <span className='card-price'>Price: {_.price}</span>
