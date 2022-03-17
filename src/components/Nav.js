@@ -9,17 +9,27 @@ align-items: flex-end;
 width: 100%;
 max-width: 1440px;
 margin: 0 auto;
-@media(max-width: 900px) {
-  .ant-col-offset-2 {
-    margin: 0;
+@media(max-width: 1100px) {
+  .ant-col-offset-3 {
+    margin-left: 10%;
   }
 }
-@media(max-width: 600px) {
+@media(max-width: 950px) {
+  .ant-col-offset-3 {
+    margin-left: 6%;
+  }
+}
+@media(max-width: 800px) {
+  .ant-col-offset-3 {
+    margin-left: 2%;
+  }
+}
+@media(max-width: 650px) {
   justify-content: center;
-  .ant-col-offset-2 {
+  .ant-col-offset-3 {
     display: none;
   }
-  .ant-col-offset-1 {
+  .ant-col-offset-4 {
     margin: 0;
   }
 }
@@ -104,7 +114,7 @@ function Nav({ current, setCurrent}) {
           </Menu>
         </Container>
       </Col>
-      <Col offset={2}>
+      <Col offset={3}>
         <CartContainer>
           <h3 className='header-title'>Shop My Plants</h3>
         </CartContainer>

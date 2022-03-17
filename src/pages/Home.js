@@ -13,10 +13,10 @@ function Home({ setCurrent }) {
 
   return (
     <Row>
-      <Col span={13} offset={2}>
+      <Col span={16} offset={1}>
         <FeaturedItems/>
       </Col>
-      <Col span={6} offset={1}>
+      <Col span={5} offset={1}>
         <SiteView/>
       </Col>
     </Row>

@@ -22,9 +22,9 @@ function Item() {
     <MainContainer>
       {item.map((_) => {
         return (
-          <>
+          <div key={_.id}>
             <img src={_.image_url} alt='' />
-          </>
+          </div>
         );
       })}
     </MainContainer>

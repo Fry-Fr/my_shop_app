@@ -15,15 +15,14 @@ h2 {
   color: rgb(var(--primary-color))
 }
 .ant-space {
-  justify-content: space-evenly;
-  align-items: baseline;
+  justify-content: center;
   flex-wrap: wrap;
   width: 100%;
   filter: drop-shadow(-.1mm -.1mm .5mm rgba(var(--dark-blue), .5));
 }
 .ant-space-item {
-  min-width: 200px;
-  max-width: 200px;
+  min-width: 275px;
+  max-width: 275px;
 }
 .ant-card-bordered {
   background: rgb(var(--primary-color));
@@ -34,23 +33,25 @@ h2 {
   &:hover {
     background: #fff;
     cursor: pointer;
-    transform: scale(104%) translate(.2em,-.1em);
+    transform: scale(104%) translate(0em,-.1em);
     transition: .5s;
   }
 }
 .ant-card-body {
   display: flex;
   flex-direction: column;
-  padding: .75rem;
+  padding: 0;
 }
 .card-title {
   text-align: center;
   text-decoration: underline;
   font-size: 1rem;
   margin-bottom: 0;
+  padding: .75em;
 }
 .card-price {
   font-weight: bold;
+  padding: .75em;
 }
 .card-content {
   display: -webkit-box;
@@ -59,7 +60,8 @@ h2 {
   overflow: hidden;
   text-align: left;
   text-overflow: ellipsis;
-  margin: 0;
+  margin: 0 auto 1rem;
+  padding: 0 1rem .25rem;
   text-indent: 1rem;
 }
 `;
@@ -76,11 +78,14 @@ function FeaturedItems() {
     <Container>
       <h2>Featured Items</h2>
       <Space direction='horizontal'>
-        {dataProducts.map((_) => {
+        {dataProducts.map((_, index) => {
+          if (index > 2) {
+            return;
+          }
           return (
             <Card id={_.id} key={_.id} onClick={handleItemClick} >
               <span><h4 className='card-title'>{_.item_name}</h4></span>
-              <img src={_.image_url} alt='gum'/>
+              <img height={200} src={_.image_url} alt='gum'/>
               <span className='card-price'>Price: {_.price}</span>
               <p className='card-content'>{_.description}</p>
             </Card>
