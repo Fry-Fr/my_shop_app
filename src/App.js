@@ -8,6 +8,7 @@ import Nav from './components/Nav';
 // Pages
 import Home from './pages/Home';
 import Shop from './pages/Shop';
+import Item from './pages/Item';
 
 const { Header,Content,Footer } = Layout;
 
@@ -59,6 +60,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home setCurrent={setCurrent} />} />
           <Route path='shop' element={<Shop setCurrent={setCurrent} />} />
+          <Route path='shop/:id' element={<Item/>} />
         </Routes>
       </Content>
       <Footer>
