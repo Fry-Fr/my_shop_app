@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import Nav from './components/Nav';
 // State
 import reducer, { initialState } from './reducer';
-import { curNavTab, setCart } from './actions';
+import { curNavTab, setCart, removeCartItem } from './actions';
 // Pages
 import Home from './pages/Home';
 import Shop from './pages/Shop';
@@ -61,7 +61,7 @@ function App() {
       </Header>
       <Content>
         <Routes>
-          <Route path='/' element={<Home curNavTab={curNavTab} dispatch={dispatch} cart={state.cart} />} />
+          <Route path='/' element={<Home removeCartItem={removeCartItem} curNavTab={curNavTab} dispatch={dispatch} cart={state.cart} />} />
           <Route path='shop' element={<Shop curNavTab={curNavTab} dispatch={dispatch} />} />
           <Route path='shop/:id' element={<Item setCart={setCart} dispatch={dispatch} />} />
         </Routes>

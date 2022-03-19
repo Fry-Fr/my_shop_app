@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 // Libs
-import { Card } from 'antd';
+import { Card, Button } from 'antd';
 import styled from 'styled-components';
 
 const Container = styled.section`
@@ -20,21 +20,42 @@ h2 {
   border: 1px solid rgb(var(--secondary-color));
   border-radius: .5rem;
   filter: contrast(110%);
+  .list-and-x {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    .item-name {
+      padding: 0 .5rem;
+    }
+    .ant-btn {
+      line-height: 0;
+      border: none;
+      padding: 0;
+    }
+  }
 }
 .ant-card-body {
-  padding: .75rem;
+  padding: .2rem .75rem;
 }
 `;
 
-function SectionCart({ cart }) {
+function SectionCart({ cart, removeCartItem, dispatch }) {
+
+  const handleRemove = (e) => {
+    dispatch(removeCartItem(e.currentTarget.id));
+  };
+
   return (
     <Container>
       <h2>Cart</h2>
       {!cart ? undefined : cart.map(item => {
-        [item] = item;
+        
         return(
           <Card key={item.id}>
-            <span>{item.item_name}</span>
+            <div className='list-and-x'>
+              <span className='item-name'>{item.item_name}</span>
+              <Button id={item.id} onClick={handleRemove} title='remove' type='danger' ghost>X</Button>
+            </div>
           </Card>
         );
       })}

@@ -49,7 +49,8 @@ function Item({ dispatch, setCart }) {
   },[]);
 
   const handleAddToCart = () => {
-    dispatch(setCart(item));
+    const [itemObj] = item;
+    dispatch(setCart(itemObj));
   };
 
   return (

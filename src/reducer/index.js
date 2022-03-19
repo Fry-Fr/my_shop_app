@@ -1,4 +1,4 @@
-import { CUR_NAV_TAB, CART } from '../actions';
+import { CUR_NAV_TAB, CART, REMOVE_CART_ITEM } from '../actions';
 
 export const initialState = {
   currNavTabPage: '',
@@ -17,7 +17,13 @@ const reducer =(state, action) => {
       ...state,
       cart: [...state.cart, action.payload]
     });
+  case(REMOVE_CART_ITEM):
+    return({
+      ...state,
+      cart: state.cart.filter(item => item.id !== action.payload)
+    });
   }
+  console.log('reducerAll ', state.cart);
 };
 
 export default reducer;
