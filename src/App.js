@@ -57,7 +57,7 @@ function App() {
   return(
     <Container>
       <Header>
-        <Nav current={state.currNavTabPage} curNavTab={curNavTab} dispatch={dispatch} />
+        <Nav currentTab={state.currNavTabPage} cartItems={state.cart} />
       </Header>
       <Content>
         <Routes>

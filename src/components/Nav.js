@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Menu, Col, Badge } from 'antd';
@@ -96,18 +97,12 @@ line-height: 2;
 }
 `;
 
-// eslint-disable-next-line react/prop-types
-function Nav({ current, setCurrent}) {
-
-  const handleClick = (e) => {
-    setCurrent(e.key);
-  };
-
+function Nav({ currentTab, cartItems }) {
   return (
     <NavContainer>
       <Col span={15} offset={1}>
         <Container>
-          <Menu onClick={handleClick} selectedKeys={[current]} mode='horizontal'>
+          <Menu selectedKeys={[currentTab]} mode='horizontal'>
             <Menu.Item key={'home'}><Link to='/'>Home</Link></Menu.Item>
             <Menu.Item key={'shop'}><Link to='shop'>Shop</Link></Menu.Item>
             <Menu.Item key={'about'}>About</Menu.Item>
@@ -121,7 +116,7 @@ function Nav({ current, setCurrent}) {
       </Col>
       <Col offset={1}>
         <CartContainer>
-          <Badge color='#004E98' size='small' count={2}>
+          <Badge color='#004E98' size='small' count={cartItems.length}>
             <ShoppingCartOutlined />
           </Badge>
         </CartContainer>
