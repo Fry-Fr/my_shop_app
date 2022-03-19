@@ -63,7 +63,7 @@ function Item({ dispatch, setCart }) {
               <span className='item-name'>{_.item_name}</span>
               <span className='item-price'>price: {_.price}</span>
             </div>
-            <p className='item-description'>{_.description}</p>
+            <p style={_.description.length > 82 ? {'textIndent':'1rem'} : {'textAlign':'center'}} className='item-description'>{_.description}</p>
             <button onClick={handleAddToCart}>add to cart</button>
           </Card>
         );
