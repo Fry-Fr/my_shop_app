@@ -48,13 +48,12 @@ function SectionCart({ cart, removeCartItem, dispatch }) {
   return (
     <Container>
       <h2>Cart</h2>
-      {!cart ? undefined : cart.map(item => {
-        
+      {!cart ? undefined : cart.map((item, index) => {
         return(
-          <Card key={item.id}>
+          <Card key={index}>
             <div className='list-and-x'>
               <span className='item-name'>{item.item_name}</span>
-              <Button id={item.id} onClick={handleRemove} title='remove' type='danger' ghost>X</Button>
+              <Button id={index} onClick={handleRemove} title='remove' type='danger' ghost>X</Button>
             </div>
           </Card>
         );
