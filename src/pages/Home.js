@@ -6,7 +6,7 @@ import FeaturedItems from '../components/FeaturedItems';
 import SectionCart from '../components/SectionCart';
 
 // eslint-disable-next-line react/prop-types
-function Home({ dispatch, curNavTab }) {
+function Home({ dispatch, curNavTab, cart }) {
   useEffect(() => {
     dispatch(curNavTab('home'));
   },[]);
@@ -17,7 +17,7 @@ function Home({ dispatch, curNavTab }) {
         <FeaturedItems/>
       </Col>
       <Col span={5} offset={1}>
-        <SectionCart/>
+        <SectionCart cart={cart} />
       </Col>
     </Row>
   );

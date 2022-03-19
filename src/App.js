@@ -61,7 +61,7 @@ function App() {
       </Header>
       <Content>
         <Routes>
-          <Route path='/' element={<Home curNavTab={curNavTab} dispatch={dispatch} />} />
+          <Route path='/' element={<Home curNavTab={curNavTab} dispatch={dispatch} cart={state.cart} />} />
           <Route path='shop' element={<Shop curNavTab={curNavTab} dispatch={dispatch} />} />
           <Route path='shop/:id' element={<Item setCart={setCart} dispatch={dispatch} />} />
         </Routes>
