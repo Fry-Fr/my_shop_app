@@ -7,7 +7,7 @@ import styled from 'styled-components';
 import Nav from './components/Nav';
 // State
 import reducer, { initialState } from './reducer';
-import { curNavTab } from './actions';
+import { curNavTab, setCart } from './actions';
 // Pages
 import Home from './pages/Home';
 import Shop from './pages/Shop';
@@ -63,7 +63,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Home curNavTab={curNavTab} dispatch={dispatch} />} />
           <Route path='shop' element={<Shop curNavTab={curNavTab} dispatch={dispatch} />} />
-          <Route path='shop/:id' element={<Item/>} />
+          <Route path='shop/:id' element={<Item setCart={setCart} dispatch={dispatch} />} />
         </Routes>
       </Content>
       <Footer>

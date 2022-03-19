@@ -1,7 +1,8 @@
-import { CUR_NAV_TAB } from '../actions';
+import { CUR_NAV_TAB, CART } from '../actions';
 
 export const initialState = {
-  currNavTabPage: ''
+  currNavTabPage: '',
+  cart: []
 };
 
 const reducer =(state, action) => {
@@ -10,6 +11,11 @@ const reducer =(state, action) => {
     return({
       ...state,
       currNavTabPage: action.payload
+    });
+  case(CART):
+    return({
+      ...state,
+      cart: [...state.cart, action.payload]
     });
   }
 };
