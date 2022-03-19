@@ -6,9 +6,9 @@ import FeaturedItems from '../components/FeaturedItems';
 import SectionCart from '../components/SectionCart';
 
 // eslint-disable-next-line react/prop-types
-function Home({ setCurrent }) {
+function Home({ dispatch, curNavTab }) {
   useEffect(() => {
-    setCurrent('home');
+    dispatch(curNavTab('home'));
   },[]);
 
   return (

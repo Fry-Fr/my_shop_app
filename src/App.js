@@ -1,10 +1,13 @@
 // Libraries
-import { useState } from 'react';
+import { useReducer } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { Layout } from 'antd';
 import styled from 'styled-components';
 // Components
 import Nav from './components/Nav';
+// State
+import reducer, { initialState } from './reducer';
+import { curNavTab } from './actions';
 // Pages
 import Home from './pages/Home';
 import Shop from './pages/Shop';
@@ -50,16 +53,16 @@ margin: 0 auto;
 `;
 
 function App() {
-  const [current, setCurrent] = useState('');
+  const [state, dispatch] = useReducer(reducer, initialState);
   return(
     <Container>
       <Header>
-        <Nav current={current} setCurrent={setCurrent} />
+        <Nav current={state.currNavTabPage} curNavTab={curNavTab} dispatch={dispatch} />
       </Header>
       <Content>
         <Routes>
-          <Route path='/' element={<Home setCurrent={setCurrent} />} />
-          <Route path='shop' element={<Shop setCurrent={setCurrent} />} />
+          <Route path='/' element={<Home curNavTab={curNavTab} dispatch={dispatch} />} />
+          <Route path='shop' element={<Shop curNavTab={curNavTab} dispatch={dispatch} />} />
           <Route path='shop/:id' element={<Item/>} />
         </Routes>
       </Content>

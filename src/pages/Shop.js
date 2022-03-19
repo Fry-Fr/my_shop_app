@@ -70,12 +70,12 @@ width: 100%;
 `;
 
 // eslint-disable-next-line react/prop-types
-function Shop({ setCurrent }) {
+function Shop({ dispatch, curNavTab }) {
 
   const navigate = useNavigate();
 
   useEffect(() => {
-    setCurrent('shop');
+    dispatch(curNavTab('shop'));
   },[]);
 
   const handleItemClick = (e) => {
