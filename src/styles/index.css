@@ -6,10 +6,11 @@
     --orange: 255, 103, 0;
     --silver: 192, 192, 192;
     --dark-blue: 0, 78, 152;
+    --bg-color: 33, 63, 95;
 }
 
 body {
-    background-image: radial-gradient(rgb(var(--silver)), rgb(var(--secondary-color)));
+    background-image: radial-gradient(rgb(var(--silver)), rgb(var(--bg-color)));
     margin: 0;
     padding: 0;
 }
