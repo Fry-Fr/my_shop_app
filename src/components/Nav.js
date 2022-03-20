@@ -132,7 +132,7 @@ function Nav({ currentTab, cartItems }) {
       </Col>
       <Col offset={1}>
         <CartContainer>
-          {cartItems.length === 0
+          {cartItems.length === 0 || currentTab === 'home'
             ?<Badge color='#004E98' size='small' count={cartItems.length}>
               <ShoppingCartOutlined />
             </Badge>
