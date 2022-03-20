@@ -12,6 +12,7 @@ import { curNavTab, setCart, removeCartItem } from './actions';
 import Home from './pages/Home';
 import Shop from './pages/Shop';
 import Item from './pages/Item';
+import Cart from './pages/Cart';
 
 const { Header,Content,Footer } = Layout;
 
@@ -57,13 +58,14 @@ function App() {
   return(
     <Container>
       <Header>
-        <Nav currentTab={state.currNavTabPage} cartItems={state.cart} />
+        <Nav curNavTab={curNavTab} dispatch={dispatch} currentTab={state.currNavTabPage} cartItems={state.cart} />
       </Header>
       <Content>
         <Routes>
           <Route path='/' element={<Home removeCartItem={removeCartItem} curNavTab={curNavTab} dispatch={dispatch} cart={state.cart} />} />
           <Route path='shop' element={<Shop curNavTab={curNavTab} dispatch={dispatch} />} />
           <Route path='shop/:id' element={<Item setCart={setCart} curNavTab={curNavTab} dispatch={dispatch} />} />
+          <Route path='cart' element={<Cart/>} />
         </Routes>
       </Content>
       <Footer>

@@ -102,7 +102,7 @@ line-height: 2;
 }
 `;
 
-function Nav({ currentTab, cartItems }) {
+function Nav({ currentTab, cartItems, curNavTab, dispatch }) {
 
   const navigate = useNavigate();
 
@@ -119,9 +119,8 @@ function Nav({ currentTab, cartItems }) {
   );
 
   const handleClickCart = () => {
-    if (cartItems.length > 0) {
-      navigate('/');
-    }
+    dispatch(curNavTab(''));
+    navigate('cart');
   };
 
   return (
