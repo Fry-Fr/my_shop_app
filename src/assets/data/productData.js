@@ -3,7 +3,7 @@ const products = [
     id: 1,
     item_type: 'trees',
     image_url: 'https://images.unsplash.com/photo-1512428813834-c702c7702b78?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=987&q=80',
-    price: '10.99',
+    price: '$10.99',
     item_name: 'Bonsai',
     description: 'Japanese "bonsai" only attempts to produce small trees that mimic the shape of real life trees.'
   },
@@ -35,7 +35,7 @@ const products = [
     id: 5,
     item_type: 'trees',
     image_url: 'https://images.unsplash.com/photo-1610087557362-e070d3c5d07d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2070&q=80',
-    price: '$30.00 per tree',
+    price: '$30.00',
     item_name: 'Maldives',
     description: 'Trees from the Maldives'
   },
