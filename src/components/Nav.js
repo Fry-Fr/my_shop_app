@@ -1,5 +1,5 @@
 /* eslint-disable react/prop-types */
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { ShoppingCartOutlined } from '@ant-design/icons';
 import { Menu, Col, Badge, Dropdown } from 'antd';
 import styled from 'styled-components';
@@ -104,6 +104,8 @@ line-height: 2;
 
 function Nav({ currentTab, cartItems }) {
 
+  const navigate = useNavigate();
+
   const sumOfCart = cartItems.reduce((prev, curr) => prev + parseFloat(curr.price.slice(1)), 0);
   const menu = (
     <Menu>
@@ -115,6 +117,12 @@ function Nav({ currentTab, cartItems }) {
       <Menu.Item key={'total-cart'}><span>Total: ${sumOfCart}</span></Menu.Item>
     </Menu>
   );
+
+  const handleClickCart = () => {
+    if (cartItems.length > 0) {
+      navigate('/');
+    }
+  };
 
   return (
     <NavContainer>
@@ -136,11 +144,11 @@ function Nav({ currentTab, cartItems }) {
         <CartContainer>
           {cartItems.length === 0 || currentTab === 'home'
             ?<Badge color='#004E98' size='small' count={cartItems.length}>
-              <ShoppingCartOutlined />
+              <ShoppingCartOutlined onClick={handleClickCart} />
             </Badge>
             :<Dropdown overlay={menu} placement='bottomRight' arrow>
               <Badge color='#004E98' size='small' count={cartItems.length}>
-                <ShoppingCartOutlined />
+                <ShoppingCartOutlined onClick={handleClickCart} />
               </Badge>
             </Dropdown>}
         </CartContainer>
