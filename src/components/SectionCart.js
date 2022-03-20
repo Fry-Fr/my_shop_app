@@ -41,6 +41,8 @@ h2 {
 
 function SectionCart({ cart, removeCartItem, dispatch }) {
 
+  const sumOfCart = cart.reduce((prev, curr) => prev + parseFloat(curr.price.slice(1)), 0);
+
   const handleRemove = (e) => {
     dispatch(removeCartItem(e.currentTarget.id));
   };
@@ -58,6 +60,7 @@ function SectionCart({ cart, removeCartItem, dispatch }) {
           </Card>
         );
       })}
+      <h2>Total: ${sumOfCart.toFixed(2)} </h2>
     </Container>
   );
 }
