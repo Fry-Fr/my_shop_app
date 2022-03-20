@@ -101,7 +101,8 @@ line-height: 2;
 `;
 
 function Nav({ currentTab, cartItems }) {
-  
+
+  const sumOfCart = cartItems.reduce((prev, curr) => prev + parseFloat(curr.price.slice(1)), 0);
   const menu = (
     <Menu>
       {cartItems.map((item,index) => {
@@ -109,6 +110,7 @@ function Nav({ currentTab, cartItems }) {
           <Menu.Item key={index}>{item.item_name}</Menu.Item>
         );
       })}
+      <Menu.Item key={'total-cart'}><span>Total: ${sumOfCart}</span></Menu.Item>
     </Menu>
   );
 
