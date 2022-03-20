@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Link } from 'react-router-dom';
 import { ShoppingCartOutlined } from '@ant-design/icons';
-import { Menu, Col, Badge } from 'antd';
+import { Menu, Col, Badge, Dropdown } from 'antd';
 import styled from 'styled-components';
 
 const NavContainer = styled.nav`
@@ -90,6 +90,9 @@ line-height: 2;
 .anticon-shopping-cart {
   color: rgb(var(--dark-blue));
   font-size: 2em;
+  &:hover {
+    cursor: pointer;
+  }
 }
 .header-title {
   white-space: nowrap;
@@ -98,6 +101,17 @@ line-height: 2;
 `;
 
 function Nav({ currentTab, cartItems }) {
+  
+  const menu = (
+    <Menu>
+      {cartItems.map((item,index) => {
+        return(
+          <Menu.Item key={index}>{item.item_name}</Menu.Item>
+        );
+      })}
+    </Menu>
+  );
+
   return (
     <NavContainer>
       <Col span={15} offset={1}>
@@ -116,9 +130,15 @@ function Nav({ currentTab, cartItems }) {
       </Col>
       <Col offset={1}>
         <CartContainer>
-          <Badge color='#004E98' size='small' count={cartItems.length}>
-            <ShoppingCartOutlined />
-          </Badge>
+          {cartItems.length === 0
+            ?<Badge color='#004E98' size='small' count={cartItems.length}>
+              <ShoppingCartOutlined />
+            </Badge>
+            :<Dropdown overlay={menu} placement='bottomRight' arrow>
+              <Badge color='#004E98' size='small' count={cartItems.length}>
+                <ShoppingCartOutlined />
+              </Badge>
+            </Dropdown>}
         </CartContainer>
       </Col>
     </NavContainer>
