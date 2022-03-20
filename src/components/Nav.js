@@ -97,6 +97,8 @@ line-height: 2;
 .header-title {
   white-space: nowrap;
   font-size: 1.2rem;
+  filter: contrast(80%);
+  margin: 0 auto;
 }
 `;
 

@@ -37,6 +37,10 @@ h2 {
 .ant-card-body {
   padding: .2rem .75rem;
 }
+.cart-total {
+  color: black;
+  filter: contrast(60%);
+}
 `;
 
 function SectionCart({ cart, removeCartItem, dispatch }) {
@@ -60,7 +64,7 @@ function SectionCart({ cart, removeCartItem, dispatch }) {
           </Card>
         );
       })}
-      <h2>Total: ${sumOfCart.toFixed(2)} </h2>
+      <h2 className='cart-total'>Total: ${sumOfCart.toFixed(2)}</h2>
     </Container>
   );
 }
