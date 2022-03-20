@@ -39,12 +39,13 @@ img {
 `;
 
 // eslint-disable-next-line react/prop-types
-function Item({ dispatch, setCart }) {
+function Item({ dispatch, setCart, curNavTab }) {
 
   const [item, setItem] = useState([]);
   const { id } = useParams();
 
   useEffect(() => {
+    dispatch(curNavTab('shop'));
     setItem(shopData.filter( itemObj => itemObj.id === parseInt(id)));
   },[]);
 
