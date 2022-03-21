@@ -7,6 +7,7 @@ export function curNavTab(string) {
   return({ type: CUR_NAV_TAB, payload: string });
 }
 export function setCart(itemObj) {
+  itemObj.quantity = itemObj.quantity + 1;
   return({ type: CART, payload: itemObj });
 }
 export function removeCartItem(id) {
