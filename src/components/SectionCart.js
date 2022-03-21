@@ -13,31 +13,25 @@ h2 {
   color: rgb(var(--primary-color));
   margin: 0;
 }
-.ant-card {
-  background: rgb(var(--primary-color));
-  border: 1px solid rgb(var(--secondary-color));
-  border-radius: .5rem;
-  filter: contrast(110%);
-  .list-and-x {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    .item-name {
-      padding: 0 .5rem;
-    }
-    .ant-btn {
-      line-height: 0;
-      border: none;
-      padding: 0;
-    }
-  }
-}
-.ant-card-body {
-  padding: .2rem .75rem;
-}
 .cart-total {
   color: black;
   filter: contrast(60%);
+}
+@media(max-width: 450px) {
+  background: none;
+  box-shadow: none;
+  padding: .25rem;
+  h2 {
+    display: none;
+  }
+  .cart-total {
+    display: inline-block;
+  }
+}
+@media(max-width: 350px) {
+  .cart-total {
+    display: none;
+  }
 }
 `;
 

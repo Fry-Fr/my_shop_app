@@ -64,6 +64,12 @@ h2 {
   padding: 0 1rem .25rem;
   text-indent: 1rem;
 }
+@media(max-width: 450px) {
+  background: none;
+  box-shadow: none;
+  padding: .25rem 0 0;
+  margin-bottom: 1rem;
+}
 `;
 
 function FeaturedItems() {
