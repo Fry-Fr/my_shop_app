@@ -4,6 +4,24 @@ import styled from 'styled-components';
 import { DeleteOutlined } from '@ant-design/icons';
 
 const Container = styled.div`
+@media(max-width: 600px) {
+  .ant-row {
+    flex-direction: column;
+  }
+  .ant-col {
+    margin: 0 auto;
+    width: 75%;
+    max-width: none;
+  }
+}
+@media(max-width: 400px) {
+  .ant-col {
+    width: 90%;
+  }
+}
+`;
+
+const TableContainer = styled.div`
 .cart-pg-title {
   background-color: rgba(var(--primary-color), .4);
   border-radius: .25rem;
@@ -72,6 +90,12 @@ h2 {
     filter: contrast(85%);
   }
 }
+@media(max-width: 600px) {
+  border-radius: 0 0 .5rem .5rem;
+  h2 {
+    display: none;
+  }
+}
 `;
 
 
@@ -121,26 +145,28 @@ function Cart({ cartItems, removeCartItem, dispatch }) {
   });
 
   return(
-    <Row>
-      <Col span={16} offset={1}>
-        <Container>
-          <div className='cart-pg-title'><h2>Cart Items</h2></div>
-          <Table
-            dataSource={dataSource}
-            columns={columns}
-            pagination={{ position: ['none', 'none'] }}
-            showHeader={dataSource.length === 0 ? false : true}
-            footer={() => <h2>{'Total: $' + sumOfCart.toFixed(2)}</h2>}
-          />
-        </Container>
-      </Col>
-      <Col span={5} offset={1}>
-        <SideOfCart>
-          <h2>Purchase<br/>Items</h2>
-          <Button type='primary' size='large'>Checkout</Button>
-        </SideOfCart>
-      </Col>
-    </Row>
+    <Container>
+      <Row>
+        <Col span={16} offset={1}>
+          <TableContainer>
+            <div className='cart-pg-title'><h2>Cart Items</h2></div>
+            <Table
+              dataSource={dataSource}
+              columns={columns}
+              pagination={{ position: ['none', 'none'] }}
+              showHeader={dataSource.length === 0 ? false : true}
+              footer={() => <h2>{'Total: $' + sumOfCart.toFixed(2)}</h2>}
+            />
+          </TableContainer>
+        </Col>
+        <Col span={5} offset={1}>
+          <SideOfCart>
+            <h2>Purchase<br/>Items</h2>
+            <Button type='primary' size='large'>Checkout</Button>
+          </SideOfCart>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 
