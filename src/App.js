@@ -62,10 +62,10 @@ function App() {
       </Header>
       <Content>
         <Routes>
-          <Route path='/' element={<Home removeCartItem={removeCartItem} curNavTab={curNavTab} dispatch={dispatch} cart={state.cart} />} />
+          <Route path='/' element={<Home curNavTab={curNavTab} dispatch={dispatch} cart={state.cart} />} />
           <Route path='shop' element={<Shop curNavTab={curNavTab} dispatch={dispatch} />} />
           <Route path='shop/:id' element={<Item setCart={setCart} curNavTab={curNavTab} dispatch={dispatch} />} />
-          <Route path='cart' element={<Cart cartItems={state.cart} />} />
+          <Route path='cart' element={<Cart cartItems={state.cart}  removeCartItem={removeCartItem} dispatch={dispatch} />} />
         </Routes>
       </Content>
       <Footer>
