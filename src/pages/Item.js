@@ -36,6 +36,11 @@ img {
     }
   }
 }
+@media(max-width: 750px) {
+  .ant-card {
+    width: 75%;
+  }
+}
 `;
 
 // eslint-disable-next-line react/prop-types
