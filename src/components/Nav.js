@@ -119,7 +119,7 @@ function Nav({ currentTab, cartItems, curNavTab, dispatch }) {
           <Menu.Item key={index}><span>{`(${item.quantity})`}</span><span>{item.item_name}</span></Menu.Item>
         );
       })}
-      <Menu.Item key={'total-cart'}><span>Total: ${sumOfCart}</span></Menu.Item>
+      <Menu.Item key={'total-cart'}><span>Total: ${sumOfCart.toFixed(2)}</span></Menu.Item>
     </Menu>
   );
 
