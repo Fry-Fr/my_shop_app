@@ -120,6 +120,8 @@ const columns = [
 function Cart({ cartItems, removeCartItem, dispatch }) {
 
   const handleClickDeleteFromCart = (e) => {
+    const [item] = cartItems.filter((item, index) => index === parseInt(e.currentTarget.id));
+    item.quantity = item.quantity - 1;
     dispatch(removeCartItem(e.currentTarget.id));
   };
 
