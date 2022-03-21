@@ -110,11 +110,12 @@ function Cart({ cartItems, removeCartItem, dispatch }) {
     );
   };
   
-  const dataSource = cartItems.map((item, index) => {
+  const uniqItems = [...new Set(cartItems)];
+  const dataSource = uniqItems.map((item, index) => {
     return({
       key: index,
       item: item.item_name,
-      price: item.price,
+      price:  '$'+parseFloat(item.price.slice(1)) * item.quantity,
       quantity: quntityCell(index, item.quantity)
     });
   });

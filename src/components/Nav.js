@@ -100,6 +100,10 @@ line-height: 2;
   filter: contrast(80%);
   margin: 0 auto;
 }
+.ant-dropdown-menu-item {
+  display: flex;
+  justify-content: space-between;
+}
 `;
 
 function Nav({ currentTab, cartItems, curNavTab, dispatch }) {
@@ -107,11 +111,12 @@ function Nav({ currentTab, cartItems, curNavTab, dispatch }) {
   const navigate = useNavigate();
 
   const sumOfCart = cartItems.reduce((prev, curr) => prev + parseFloat(curr.price.slice(1)), 0);
+  const uniqItems = [...new Set(cartItems)];
   const menu = (
     <Menu>
-      {cartItems.map((item,index) => {
+      {uniqItems.map((item,index) => {
         return(
-          <Menu.Item key={index}>{item.item_name}</Menu.Item>
+          <Menu.Item key={index}><span>{`(${item.quantity})`}</span><span>{item.item_name}</span></Menu.Item>
         );
       })}
       <Menu.Item key={'total-cart'}><span>Total: ${sumOfCart}</span></Menu.Item>
