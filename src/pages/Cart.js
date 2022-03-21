@@ -101,10 +101,10 @@ function Cart({ cartItems, removeCartItem, dispatch }) {
 
   const sumOfCart = cartItems.reduce((prev,curr) => prev + parseFloat(curr.price.slice(1)), 0);
 
-  const quntityCell = (id) => {
+  const quntityCell = (id, quantity) => {
     return (
       <div className='quantity-cell'>
-        {'[number]'}
+        {`X${quantity}`}
         <DeleteOutlined title='Remove' id={id} onClick={handleClickDeleteFromCart} />
       </div>
     );
@@ -115,7 +115,7 @@ function Cart({ cartItems, removeCartItem, dispatch }) {
       key: index,
       item: item.item_name,
       price: item.price,
-      quantity: quntityCell(index)
+      quantity: quntityCell(index, item.quantity)
     });
   });
 
