@@ -1,6 +1,4 @@
 /* eslint-disable react/prop-types */
-// Libs
-import { Card, Button } from 'antd';
 import styled from 'styled-components';
 
 const Container = styled.section`
@@ -43,27 +41,13 @@ h2 {
 }
 `;
 
-function SectionCart({ cart, removeCartItem, dispatch }) {
+function SectionCart({ cart }) {
 
   const sumOfCart = cart.reduce((prev, curr) => prev + parseFloat(curr.price.slice(1)), 0);
-
-  const handleRemove = (e) => {
-    dispatch(removeCartItem(e.currentTarget.id));
-  };
 
   return (
     <Container>
       <h2>Cart</h2>
-      {!cart ? undefined : cart.map((item, index) => {
-        return(
-          <Card key={index}>
-            <div className='list-and-x'>
-              <span className='item-name'>{item.item_name}</span>
-              <Button id={index} onClick={handleRemove} title='remove' type='danger' ghost>X</Button>
-            </div>
-          </Card>
-        );
-      })}
       <h2 className='cart-total'>Total: ${sumOfCart.toFixed(2)}</h2>
     </Container>
   );
