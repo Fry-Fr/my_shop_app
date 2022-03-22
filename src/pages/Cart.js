@@ -141,7 +141,7 @@ function Cart({ cartItems, removeCartItem, dispatch }) {
     return({
       key: index,
       item: item.item_name,
-      price:  '$'+parseFloat(item.price.slice(1)) * item.quantity,
+      price:  '$'+(parseFloat(item.price.slice(1)) * item.quantity).toFixed(2),
       quantity: quntityCell(index, item.quantity)
     });
   });
