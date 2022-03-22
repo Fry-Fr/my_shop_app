@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import { Col, Table, Row, Button } from 'antd';
+import { useState } from 'react';
+import { Modal, Col, Table, Row, Button } from 'antd';
 import styled from 'styled-components';
 import { DeleteOutlined } from '@ant-design/icons';
 
@@ -119,6 +120,11 @@ const columns = [
 
 function Cart({ cartItems, removeCartItem, dispatch }) {
 
+  const [modal, setModal] = useState(false);
+  const handleCheckout = () => {
+    setModal(!modal);
+  };
+
   const handleClickDeleteFromCart = (e) => {
     const [item] = cartItems.filter((item, index) => index === parseInt(e.currentTarget.id));
     item.quantity = item.quantity - 1;
@@ -164,10 +170,21 @@ function Cart({ cartItems, removeCartItem, dispatch }) {
         <Col span={5} offset={1}>
           <SideOfCart>
             <h2>Purchase<br/>Items</h2>
-            <Button type='primary' size='large'>Checkout</Button>
+            <Button onClick={handleCheckout} type='primary' size='large'>Checkout</Button>
           </SideOfCart>
         </Col>
       </Row>
+      <Modal title={'Confirm Purchase'} visible={modal} onOk={()=>{return;}} onCancel={()=>setModal(false)}>
+        {cartItems.length > 0 ? <p>Confirm this purchase of items.</p> : <p style={{'textAlign':'center'}}>Cart is empty</p>}
+        {uniqItems.map(item => {
+          return(
+            <>
+              {'('+item.quantity+'x) '+item.item_name+' ~ '+item.price+' per unit.'}<br/><strong>{' total: $'+(parseFloat(item.price.slice(1))*item.quantity).toFixed(2)}</strong><br/>
+            </>
+          );
+        })}
+        {cartItems.length > 0 ? <h2 style={{'margin':'.75em 0 0'}}>Total amount: {sumOfCart.toFixed(2)}</h2> : undefined}
+      </Modal>
     </Container>
   );
 }
