@@ -183,7 +183,7 @@ function Cart({ cartItems, removeCartItem, dispatch }) {
             </>
           );
         })}
-        {cartItems.length > 0 ? <h2 style={{'margin':'.75em 0 0'}}>Total amount: {sumOfCart.toFixed(2)}</h2> : undefined}
+        {cartItems.length > 0 ? <h2 style={{'margin':'.75em 0 0'}}>Total amount: ${sumOfCart.toFixed(2)}</h2> : undefined}
       </Modal>
     </Container>
   );
